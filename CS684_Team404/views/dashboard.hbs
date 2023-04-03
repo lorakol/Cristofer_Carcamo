@@ -200,12 +200,6 @@
     margin-right: 10px;
   }
 
-  .page-inactive-button {
-    background-color: #fff; !important
-    color: black; !important
-  }
-
-
 </style>
 <html>
 
@@ -258,13 +252,11 @@
           <h2>"Home" tab displayed based of your preferences</h2>
           <h3>click each tab to view news for that category</h3>
           <div id="category-buttons">
-            {{#each CategoryBtns}}
-            
-            {{#if isActive}}            
-              <a class="btn btn-primary page-button" href="?page=1&category={{value}}" role="button">{{value}}</a>
-            {{else}}
-              <a class="btn btn-secondary page-button page-inactive-button" href="?page=1&category={{value}}" role="button">{{value}}</a>
-              {{!-- <button class="category-button" data-category="{{this}}">{{this}}</button> --}}
+            {{#each CategoryBtns}}            
+              {{#if isActive}}            
+                <a class="btn btn-primary page-button" href="?page=1&category={{value}}" role="button">{{value}}</a>
+              {{else}}
+                <a class="btn btn-secondary page-button page-inactive-button" href="?page=1&category={{value}}" role="button">{{value}}</a>              
               {{/if}}
             {{/each}}
           </div>

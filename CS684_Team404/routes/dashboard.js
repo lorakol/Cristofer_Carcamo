@@ -212,8 +212,8 @@ router.get("/", isAuthenticated, async (req, res) => {
   const firstPage = 1;
   const lastPage = pages;
   const catButtons = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
-
   const CategoryBtns = catButtons.map((str, index) => ({ value: str, isActive: str==currentCategory }));
+
   if (res.locals.error) {
     res.status(500).send("Oops! Something went wrong.");
   } else {
@@ -244,6 +244,8 @@ router.get("/", isAuthenticated, async (req, res) => {
       nextPage : nextPage,
       firstPage,
       lastPage,
+      totalResults: allArticles.length, 
+      numPages,
       CategoryBtns,
       curCategory: currentCategory
     });
@@ -252,7 +254,7 @@ router.get("/", isAuthenticated, async (req, res) => {
 
 });  
 
-
+//const catButtons = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
 router.get('/catButtons', (req, res) => {
   res.json(catButtons);
 });
